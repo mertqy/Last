@@ -1,0 +1,14 @@
+using Last.Models;
+using Microsoft.AspNetCore.Mvc;
+using System;
+
+
+@Model List<Person>
+
+    @foreach (var person in Model)
+    {
+    <p>@person.FirstName</p>
+    <p>@person.LastName</p>
+    <p>@person.Number</p>
+    <hr />
+    }

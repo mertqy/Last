@@ -1,0 +1,77 @@
+﻿@model List<Last.Models.Person>
+
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form asp-controller="Home" asp-action="AddPerson" method="post">
+                        <div style="width: 20rem; display: inline-block;">
+                            <label for="FirstName">Ad:</label>
+                            <input id="FirstName" name="FirstName" class="form-control" required />
+                        </div>
+                        <div style="width: 20rem; display: inline-block;">
+                            <label for="LastName">Soyad:</label>
+                            <input id="LastName" name="LastName" class="form-control" required />
+                        </div>
+                        <div style="width: 20rem; display: inline-block;">
+                            <label for="Number">TC Numarası:</label>
+                            <input id="Number" name="Number" class="form-control" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">kaydet</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 border border-1" id="Slist">
+                    <table class="table mt-4">
+                        <tbody>
+                            @foreach (var Person in Model)
+                            {
+                            <tr>
+                                <td>@Person.FirstName</td>
+                                <td>@Person.LastName</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-8 border border-1" style="height: 500px;" id="Sdetay">
+
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function (event) {
+                event.preventDefault(); // Formun normal gönderimini engelle
+
+                var formData = $(this).serialize(); // Formdaki verileri al
+
+                $.ajax({
+                    type: 'POST', // İstek türü
+                    url: 'Models/PersonModel.cs', // İsteğin gönderileceği URL
+                    data: formData, // Gönderilecek veriler
+                    success: function (response) {
+                        // İstek başarılı olduğunda çalışacak kod
+                        console.log(response);
+                        // Dönen listeyi ekrana yazdır
+                        response.forEach(function (person) {
+                            $('Slist').append('<p>' + person.FirstName + ' ' + person.LastName + ': ' + '</p>');
+                        });
+                    },
+                });
+            });
+        });
+    </script>
