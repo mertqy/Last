@@ -34,3 +34,4 @@ C:\Users\mert_\OneDrive\Masaüstü\MERT\C#\FORM\Last\Last\bin\Debug\net7.0\xunit
 C:\Users\mert_\OneDrive\Masaüstü\MERT\C#\FORM\Last\Last\bin\Debug\net7.0\xunit.assert.dll
 C:\Users\mert_\OneDrive\Masaüstü\MERT\C#\FORM\Last\Last\bin\Debug\net7.0\xunit.core.dll
 C:\Users\mert_\OneDrive\Masaüstü\MERT\C#\FORM\Last\Last\bin\Debug\net7.0\xunit.execution.dotnet.dll
+C:\Users\mert_\OneDrive\Masaüstü\MERT\C#\FORM\Last\Last\obj\Debug\net7.0\Last.sourcelink.json
