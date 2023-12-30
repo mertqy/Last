@@ -6,9 +6,9 @@
 
     </head>
 
-    <body>
-        <div class="container">
-            <div class="row">
+    <body style="background-color: rgb(236, 232, 226);">
+        <div class="container mt-5">
+            <div class="row bg-white">
                 <div class="col-12">
                     <form asp-controller="Home" asp-action="AddPerson" method="post">
                         <div style="width: 20rem; display: inline-block;">
@@ -27,7 +27,7 @@
                     </form>
                 </div>
             </div>
-            <div class="row">
+            <div class="row bg-white">
                 <div class="col-4 border border-1" id="Slist">
                     <table class="table mt-4">
                         <tbody>
@@ -42,12 +42,10 @@
                     </table>
                 </div>
                 <div class="col-8 border border-1" style="height: 500px;" id="Sdetay">
-                    @await Component.InvokeAsync("Person")
                 </div>
             </div>
         </div>
     </body>
-
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -61,7 +59,7 @@
 
                 $.ajax({
                     type: 'POST', // İstek türü
-                    url: 'Models/PersonModel.cs', // İsteğin gönderileceği URL
+                    url: '/Home/AddPerson', // İstek adresi
                     data: formData, // Gönderilecek veriler
                     success: function (response) {
                         // İstek başarılı olduğunda çalışacak kod

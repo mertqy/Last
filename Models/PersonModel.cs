@@ -17,7 +17,13 @@ namespace Last.Models
 
         internal static string? GetPersonById(int id)
         {
-            throw new NotImplementedException();
+            return id switch
+            {
+                1 => "John",
+                2 => "Mary",
+                3 => "Bob",
+                _ => null
+            };
         }
     }
 }
